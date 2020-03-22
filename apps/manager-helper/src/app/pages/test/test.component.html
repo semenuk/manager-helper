@@ -1,0 +1,11 @@
+<mat-form-field>
+  <input matInput #input
+         color="primary"
+         placeholder="Проверка сообщения"
+         autocomplete="off"
+         (keydown.enter)="ask(input.value)">
+</mat-form-field>
+
+<div class="answer">
+  {{ answer$ | async }}
+</div>

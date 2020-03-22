@@ -1,0 +1,38 @@
+<mat-expansion-panel *ngFor="let theme of themes$ | async" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{theme.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      <div class="description">
+        {{theme.answer}}
+      </div>
+      <button class="edit-icon" mat-button mat-icon-button (click)="edit(theme, $event)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-selection-list #selectionList>
+    <ng-container *ngFor="let question of theme.questions">
+      <mat-list-option [value]="question">{{question}}</mat-list-option>
+      <mat-divider [inset]="true"></mat-divider>
+    </ng-container>
+  </mat-selection-list>
+
+  <form>
+    <mat-form-field>
+      <input matInput #inputQuestion autocomplete="off">
+    </mat-form-field>
+  </form>
+
+  <mat-action-row>
+    <button mat-button mat-raised-button color="primary" (click)="addQuestion(theme, inputQuestion)">
+      Добавить
+    </button>
+    <button mat-button mat-raised-button color="accent" (click)="delete(theme, selectionList)">
+      Удалить
+    </button>
+  </mat-action-row>
+
+</mat-expansion-panel>

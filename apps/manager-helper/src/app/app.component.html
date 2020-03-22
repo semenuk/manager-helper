@@ -1,8 +1,14 @@
-<div style="text-align:center">
-  <h1>Welcome to manager-helper!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="header">MANAGER HELPER</div>
+    <button mat-button mat-raised-button color="primary" (click)="train()">Тренировать</button>
+    <a mat-button mat-raised-button color="accent" routerLink="/test">Протестировать</a>
+    <a mat-button mat-raised-button routerLink="/edit">Добавить</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+
+  <router-outlet></router-outlet>
+
+</mat-card>

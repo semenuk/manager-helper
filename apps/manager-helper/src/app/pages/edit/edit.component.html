@@ -1,0 +1,9 @@
+<form (submit)="save($event)">
+  <mat-form-field>
+    <input matInput autocomplete="off" placeholder="Идентификатор" [formControl]="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput autocomplete="off" placeholder="Сообщение" [formControl]="message">
+  </mat-form-field>
+  <button mat-button mat-raised-button>Сохранить</button>
+</form>

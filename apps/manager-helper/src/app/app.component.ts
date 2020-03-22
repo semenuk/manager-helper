@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@manager-helper/api-interfaces';
+import { BotService } from './services/bot.service';
 
 @Component({
   selector: 'manager-helper-root',
@@ -8,6 +7,11 @@ import { Message } from '@manager-helper/api-interfaces';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+
+  constructor(private botService: BotService) {
+  }
+
+  train() {
+    this.botService.train();
+  }
 }
